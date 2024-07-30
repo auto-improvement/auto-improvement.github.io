@@ -174,8 +174,54 @@
           <p>
             The standard paradigm for improving instruction following policies involves a human manually collecting 
             additional robot data, labelling it with language instructions, and then finetuning the policy on this data.
-            This is an expensive endeavor, especially when improvement is desired over a multitude of environments.
+            <!-- This is an expensive endeavor, especially when improvement is desired over a multitude of environments. -->
             Can we instead <b>leverage the policy's pre-existing capabilities to bootstrap a self-improvement process?</b>
+          </p>
+          <p>
+            We propose a particular formulation of an autonomous improvement loop, which we call SOAR,
+            that enables self-improvement of a multi-task language-conditioned policy. The idea is to:
+            <ol>
+              <b><li>Decouple language understanding from robotic control</li></b>
+              <b><li>Use VLMs to help instantiate a complete autonomous improvement loop</li></b>
+            </ol>
+          </p>
+          <hr>
+          <p>
+            SOAR first decouples a language-conditioned policy into an <b>image-goal conditioned policy</b> 
+            and a <b>language-conditioned image subgoal generator</b>. With such a formulation, any autonomously collected data
+            can be used for learning with an entirely self-supervised learning algorithm, namely <b>hindsight-relabeled 
+            goal-conditioned learning</b>. 
+          </p>
+          <p>
+            Instruction following can then build off of the Internet-scale 
+            knowledge stored in VLMs. VLMs can be used as <b>task proposers</b> to bias the policy to learn to reach 
+            semantically interesting goals, and the same VLMs can automate the <b>success detection</b> of autonomously collected 
+            trajectories. The image-subgoal generator, also a VLM, can leverage its Internet pretraining to propose coherent, 
+            language-aligned goal images in unseen environments with unseen objects, the types of environments we most want 
+            policies to improve in.
+          </p>
+        </div>
+        <div class="container is-max-desktop">
+          <img id="teaser" src="./static/images/system_diagram.png" alt="System Diagram" width="100%">
+         </div>
+         <div class="content has-text-justified">
+          <!-- <p>
+            We present SOAR, a general-purpose robot learning system capable of autonomously improving instruction 
+            following policies. SOAR first decouples a language conditioned policy into an <b>image-goal conditioned policy</b> 
+            and a <b>language conditioned image subgoal generator</b>. With such a formulation, any autonomously collected data
+            can be used for learning with an entirely self-supervised learning algorithm, namely <b>hindsight-relabeled 
+            goal conditioned learning</b>. Instruction following can then leverage the Internet-scale 
+            knowledge of semantics stored in <b>VLMs</b>. VLMs can be used as task proposers to bias the policy to learn to reach 
+            semantically interesting goals, and the same VLMs can automate the success detection of autonomously collected 
+            trajectories. The image-subgoal generator, also a VLM, can leverage its Internet pretraining to propose coherent, 
+            language-aligned goal images in unseen environments with unseen objects, the types of environments we most want 
+            policies to improve in.
+          </p> -->
+          <br>
+          <p>
+            When these components are put together, SOAR becomes an <b>end-to-end system for autonomous
+            improvement</b>. SOAR can successfuly be deployed on a fleet of 5 WidowX robots to improve a language-conditioned policy on 
+            9 different environments, collecting in the process over 30,000 autonomous trajectories in just a matter of a few weeks.
           </p>
         </div>
       </div>
@@ -191,38 +237,11 @@
   </div>
 </section> -->
 
-<section class="hero teaser">
+<!-- <section class="hero teaser">
   <div class="container is-max-desktop">
-   <img id="teaser" src="./static/images/system_diagram.png" alt="System Diagram" height="100%">
+   <img id="teaser" src="./static/images/system_diagram.png" alt="System Diagram" width="100%">
   </div>
- </section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns">
-      <div class="column">
-        <div class="content has-text-justified">
-          <p>
-            We present SOAR, a general-purpose robot learning system capable of autonomously improving instruction 
-            following policies. SOAR first decouples a language conditioned policy into an <b>image-goal conditioned policy</b> 
-            and a <b>language conditioned image subgoal generator</b>. With such a formulation, any autonomously collected data
-            can be used for learning with an entirely self-supervised learning algorithm, namely <b>hindsight-relabeled 
-            goal conditioned learning</b>. Instruction following can then leverage the Internet-scale 
-            knowledge of semantics stored in <b>VLMs</b>. VLMs can be used as task proposers to bias the policy to learn to reach 
-            semantically interesting goals, and the same VLMs can automate the success detection of autonomously collected 
-            trajectories. The image-subgoal generator, also a VLM, can leverage its Internet pretraining to propose coherent, 
-            language-aligned goal images in unseen environments with unseen objects, the types of environments we most want 
-            policies to improve in.
-          </p>
-          <p>
-            When these components are put together, SOAR becomes an <b>end-to-end system for autonomous
-            improvement</b>. SOAR can successfuly be deployed on a fleet of 5 WidowX robots to improve a language-conditioned policy on 
-            9 different environments, collecting in the process over 30,000 autonomous trajectories in just a matter of a few weeks.
-          </p>
-        </div>
-      </div>
-    </div>
-</section>
+ </section> -->
 
 <section class="hero is-light is-small">
   <div class="hero-body">
@@ -305,9 +324,29 @@
             <source src="static/videos/carousel_2/timelapse_6.mp4" type="video/mp4">
           </video>
         </div>
+        <div class="item item-vid77">
+          <video poster="" id="vid77" autoplay controls muted width=100%>
+            <source src="static/videos/carousel_2/timelapse_7.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-vid88">
+          <video poster="" id="vid88" autoplay controls muted width=100%>
+            <source src="static/videos/carousel_2/timelapse_8.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-vid99">
+          <video poster="" id="vid99" autoplay controls muted width=100%>
+            <source src="static/videos/carousel_2/timelapse_9.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-vid1010">
+          <video poster="" id="vid1010" autoplay controls muted width=100%>
+            <source src="static/videos/carousel_2/timelapse_10.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
       <br>
-      <p class="has-text-centered">Time lapse videos of autonomous data collection
+      <p class="has-text-centered">Time lapse videos of autonomous data collection. Generated subgoal images during data collection are depicted in the top right
     </div>
   </div>
 </section><br><br>
@@ -329,7 +368,7 @@
 
 <section class="hero teaser">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">Decomposed Instruction Following Policy</h2>
+    <h2 class="title is-3">Reformulating Language-Conditioned Control</h2>
     <div class="hero-body-border">
       <video id="decomposed_lc_policy" autoplay muted loop playsinline height="80%">
         <source src="./static/videos/soar_lc_policy.mp4"
@@ -344,7 +383,7 @@
       <div class="column">
         <div class="content has-text-justified">
           <p>
-            We insantiate our instruction following policy with <a href="https://rail-berkeley.github.io/susie/">SuSIE</a>, 
+            We instantiate our instruction following policy with <a href="https://rail-berkeley.github.io/susie/">SuSIE</a>, 
             a language conditioned policy decomposed as a goal conditioned policy and an 
             <a href="https://www.timothybrooks.com/instruct-pix2pix">InstructPix2Pix</a> style language conditioned 
             image editing model. Language task commands from the VLM are converted into subgoal images with the diffusion 
@@ -415,7 +454,7 @@
 </section>
 
 <section class="hero teaser">
-  <h2 class="title is-3">Importance of Data-Collection Policy</h2>
+  <h2 class="title is-3">Autonomous Data Quality</h2>
   <div class="hero-body">
     <div class="container">
       <div class="video-container">
@@ -455,7 +494,7 @@
 
  <section class="section">
   <div class="container is-max-desktop">
-      We also release as a secondary contribution the autonomous dataset collected by our deployment of SOAR.
+      We also release as a secondary contribution <a href="https://rail.eecs.berkeley.edu/datasets/soar_release/">the autonomous dataset</a> collected by our deployment of SOAR.
       This dataset, SOAR-Data, consists of more than <b>30,000 trajectories (3M transitions) collected with
       over 50 different sets of objects across 5 different table top setups.</b> Each trajectory in SOAR-Data
       comes with language annotations (from a VLM), 5 commanded subgoal images generated by SuSIE
@@ -464,7 +503,8 @@
       matter of weeks) with minimal human effort in the loop. As SOAR-Data consists both of failure and success 
       trajectories, contains diverse scenes and objects, includes language instructions and 
       subgoal images, and is collected with a publicly available low-cost robotic arm, we hope it will be a 
-      useful resource for offline reinforcement learning research.
+      useful resource for offline reinforcement learning research. See <a href="https://github.com/rail-berkeley/soar">https://github.com/rail-berkeley/soar</a>
+      for instructions on how to download the data.
   </div>
 </section>
 

@@ -71,6 +71,13 @@ body {
     font-family: 'Google Sans', sans-serif;
 }
 
+ol {
+  padding-left: 40px; /* Increase indentation */
+}
+ol li {
+  margin-bottom: 10px; /* Increase spacing between items */
+}
+
 .publication-authors {
     font-family: 'Google Sans', sans-serif;
 }
